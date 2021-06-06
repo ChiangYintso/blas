@@ -11,6 +11,7 @@ jobs:
       - run: apt-get -y update &&
             apt-get -y install
               g++
+              git
               cmake
       - checkout
       - run: mkdir build
