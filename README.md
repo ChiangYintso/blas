@@ -1,6 +1,6 @@
-[![CircleCI](https://circleci.com/gh/ChiangYintso/blas/tree/main.svg?style=svg)](https://circleci.com/gh/ChiangYintso/blas/tree/main)
+[![CircleCI](https://circleci.com/gh/ChiangYintso/libra/tree/main.svg?style=svg)](https://circleci.com/gh/ChiangYintso/libra/tree/main)
 
-# blas
+# libra
 
 ## Build and Run Tests
 

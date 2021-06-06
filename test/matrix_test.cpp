@@ -1,12 +1,12 @@
 // Copyright (c) 2021, Jiang Yinzuo. All rights reserved.
 
 #include "gtest/gtest.h"
-#include <blas/matrix.h>
+#include <libra/matrix.h>
 
 namespace {
 
 TEST(MatrixTest, ScalarOperation) {
-  blas::Matrix<float, 4, 3> mat{};
+  libra::Matrix<float, 4, 3> mat{};
   mat += 4;
   for (auto &row : mat) {
     for (float e : row) {

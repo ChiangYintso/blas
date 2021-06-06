@@ -2,7 +2,7 @@
 
 #pragma once
 
-namespace blas {
+namespace libra {
 template<typename T, std::size_t R, std::size_t C>
 class MatrixBase {
  public:

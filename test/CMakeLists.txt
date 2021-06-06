@@ -15,15 +15,15 @@ set(install_gmock OFF)
 FetchContent_MakeAvailable(googletest)
 
 # Add test executables
-file(GLOB BLAS_TEST_SOURCES "${PROJECT_SOURCE_DIR}/test/*test.cpp")
+file(GLOB LIBRA_TEST_SOURCES "${PROJECT_SOURCE_DIR}/test/*test.cpp")
 
-foreach (blas_test_source ${BLAS_TEST_SOURCES})
+foreach (libra_test_source ${LIBRA_TEST_SOURCES})
     # Create a human readable name.
-    get_filename_component(blas_test_filename ${blas_test_source} NAME)
-    string(REPLACE ".cpp" "" blas_test_name ${blas_test_filename})
+    get_filename_component(libra_test_filename ${libra_test_source} NAME)
+    string(REPLACE ".cpp" "" libra_test_name ${libra_test_filename})
     
-    add_executable(${blas_test_name} ${blas_test_source})
-    target_link_libraries(${blas_test_name} ${PROJECT_NAME} gtest_main)
+    add_executable(${libra_test_name} ${libra_test_source})
+    target_link_libraries(${libra_test_name} ${PROJECT_NAME} gtest_main)
 
-    add_test(NAME ${blas_test_name} COMMAND ${blas_test_name})
-endforeach (blas_test_source ${BLAS_TEST_SOURCES})
+    add_test(NAME ${libra_test_name} COMMAND ${libra_test_name})
+endforeach (libra_test_source ${LIBRA_TEST_SOURCES})

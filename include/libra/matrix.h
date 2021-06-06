@@ -6,7 +6,7 @@
 #include <emmintrin.h>
 #include "_base/matrix_base.h"
 
-namespace blas {
+namespace libra {
 
 template<typename T, std::size_t R, std::size_t C>
 class Matrix : public MatrixBase<T, R, C> {
@@ -62,6 +62,7 @@ class Matrix<float, R, C> : public MatrixBase<float, R, C> {
   Matrix() = default;
 
   Matrix<float, R, C> &operator*=(float num) {
+#ifdef BLAS_USE_SSE2
     const __m128 scalar = _mm_set1_ps(num);
     for (int i = 0; i < R; ++i) {
       for (int j = 0; j + 4 <= C; j += 4) {
@@ -77,10 +78,18 @@ class Matrix<float, R, C> : public MatrixBase<float, R, C> {
         case 1:this->data_[i][C - 1] *= num;
       }
     }
+#else
+    for (int i = 0; i < R; ++i) {
+      for (int j = 0; j < C; ++j) {
+        this->data_[i][j] *= num;
+      }
+    }
+#endif
     return *this;
   }
 
   Matrix<float, R, C> &operator+=(float num) {
+#ifdef BLAS_USE_SSE2
     const __m128 scalar = _mm_set1_ps(num);
     for (int i = 0; i < R; ++i) {
       for (int j = 0; j + 4 <= C; j += 4) {
@@ -96,6 +105,13 @@ class Matrix<float, R, C> : public MatrixBase<float, R, C> {
         case 1:this->data_[i][C - 1] += num;
       }
     }
+#else
+    for (int i = 0; i < R; ++i) {
+      for (int j = 0; j < C; ++j) {
+        this->data_[i][j] += num;
+      }
+    }
+#endif
     return *this;
   }
 

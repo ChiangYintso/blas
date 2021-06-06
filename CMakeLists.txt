@@ -1,29 +1,26 @@
 cmake_minimum_required(VERSION 3.16)
-project(blas)
+project(libra)
 
 set(CMAKE_CXX_STANDARD 20)
 
-set(BLAS_BUILD_TESTS "Build ${PROJECT_NAME}'s unit tests" ON)
+set(LIBRA_BUILD_TESTS "Build ${PROJECT_NAME}'s unit tests" ON)
+set(LIBRA_BUILD_BENCHMARK "Build ${PROJECT_NAME}'s unit benchmark" ON)
 
 set(INCLUDE_INSTALL_DIR ${PROJECT_SOURCE_DIR}/include)
 
+add_compile_definitions(LIBRA_USE_SSE2)
 
 include(FetchContent)
 
-if (BLAS_BUILD_TESTS)
+if (LIBRA_BUILD_TESTS)
     add_subdirectory(test)
-endif (BLAS_BUILD_TESTS)
+endif (LIBRA_BUILD_TESTS)
 
 set(BENCHMARK_ENABLE_INSTALL OFF)
 set(BENCHMARK_ENABLE_TESTING OFF)
-
-FetchContent_Declare(
-        benchmark
-        GIT_REPOSITORY https://hub.fastgit.org/google/benchmark.git
-        GIT_TAG v1.5.4
-        GIT_SHALLOW TRUE
-)
-FetchContent_MakeAvailable(benchmark)
+if (LIBRA_BUILD_BENCHMARK)
+    add_subdirectory(benchmark)
+endif(LIBRA_BUILD_BENCHMARK)
 
 
 add_library(${PROJECT_NAME} INTERFACE)
