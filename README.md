@@ -1,3 +1,5 @@
+[![CircleCI](https://circleci.com/gh/ChiangYintso/blas/tree/main.svg?style=svg)](https://circleci.com/gh/ChiangYintso/blas/tree/main)
+
 # blas
 
 ## Build and Run Tests
