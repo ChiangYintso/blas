@@ -10,7 +10,7 @@ jobs:
     steps:
       - run: apt-get -y update &&
             apt-get -y install
-              gcc
+              g++
               cmake
       - checkout
       - run: mkdir build
