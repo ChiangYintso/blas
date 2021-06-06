@@ -5,6 +5,8 @@ jobs:
   build_test:
     docker:
       - image: ubuntu:20.04
+    environment:
+      DEBIAN_FRONTEND: noninteractive
     steps:
       - run: apt-get -y update &&
             apt-get -y install
