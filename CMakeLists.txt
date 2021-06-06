@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.19)
+cmake_minimum_required(VERSION 3.16)
 project(blas)
 
 set(CMAKE_CXX_STANDARD 20)
@@ -8,11 +8,14 @@ set(BLAS_BUILD_TESTS "Build ${PROJECT_NAME}'s unit tests" ON)
 set(INCLUDE_INSTALL_DIR ${PROJECT_SOURCE_DIR}/include)
 
 
+include(FetchContent)
+
 if (BLAS_BUILD_TESTS)
     add_subdirectory(test)
 endif (BLAS_BUILD_TESTS)
 
-include(FetchContent)
+set(BENCHMARK_ENABLE_INSTALL OFF)
+set(BENCHMARK_ENABLE_TESTING OFF)
 
 FetchContent_Declare(
         benchmark

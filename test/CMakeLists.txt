@@ -1,4 +1,5 @@
 enable_testing()
+include(CTest)
 
 FetchContent_Declare(
         googletest
@@ -8,6 +9,9 @@ FetchContent_Declare(
 )
 # For Windows: Prevent overriding the parent project's compiler/linker settings
 set(gtest_force_shared_crt ON CACHE BOOL "" FORCE)
+set(install_gtest OFF)
+set(install_gmock OFF)
+
 FetchContent_MakeAvailable(googletest)
 
 # Add test executables
