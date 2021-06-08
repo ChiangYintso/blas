@@ -4,6 +4,10 @@
 
 A linear algebra library.
 
+## Requirements
+
+g++10
+
 ## Build and Run Tests
 
 ```shell

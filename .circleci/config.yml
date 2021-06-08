@@ -15,7 +15,7 @@ jobs:
               cmake
       - checkout
       - run: mkdir build
-      - run: cd build && cmake ..
+      - run: cd build && cmake .. -DCMAKE_C_COMPILER=/usr/bin/gcc-10 -DCMAKE_CXX_COMPILER=/usr/bin/g++-10
       - run: cd build && make -j 2
       - run: cd build/test && ctest -V
 # Orchestrate or schedule a set of jobs
