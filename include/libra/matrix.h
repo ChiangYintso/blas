@@ -8,8 +8,8 @@
 
 namespace libra {
 
-template<typename T, std::size_t R, std::size_t C>
-class Matrix : public MatrixBase<T, R, C> {
+template<number T, std::size_t R, std::size_t C>
+ class Matrix : public MatrixBase<T, R, C> {
 
  public:
   explicit Matrix(const T(&list)[R][C]) {

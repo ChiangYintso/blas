@@ -10,7 +10,7 @@ jobs:
     steps:
       - run: apt-get -y update &&
             apt-get -y install
-              g++
+              g++-10
               git
               cmake
       - checkout

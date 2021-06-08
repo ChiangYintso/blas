@@ -2,6 +2,8 @@
 
 # libra
 
+A linear algebra library.
+
 ## Build and Run Tests
 
 ```shell
