@@ -33,3 +33,10 @@
 
 # Build directories
 /build
+
+# Clion directories
+.idea
+cmake-build-debug
+
+# bazel build
+bazel-*
