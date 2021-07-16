@@ -9,13 +9,13 @@ commands:
       - run:
           name: Add Bazel Apt repository
           command: |
-            sudo apt install curl gnupg
+            apt install curl gnupg
             curl -fsSL https://bazel.build/bazel-release.pub.gpg | gpg --dearmor > bazel.gpg
-            sudo mv bazel.gpg /etc/apt/trusted.gpg.d/
+            mv bazel.gpg /etc/apt/trusted.gpg.d/
             echo "deb [arch=amd64] https://storage.googleapis.com/bazel-apt stable jdk1.8" | sudo tee /etc/apt/sources.list.d/bazel.list
       - run:
           name: Install Bazel from Apt
-          command: sudo apt update && sudo apt install bazel
+          command: apt -y update && apt -y install bazel
   setup-dependencies:
     steps:
       - run: apt-get -y update &&
