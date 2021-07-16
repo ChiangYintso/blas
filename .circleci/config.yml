@@ -46,7 +46,7 @@ jobs:
       - setup-dependencies
       - setup-bazel
       - checkout
-      - bazel run test:matrix_test
+      - run: bazel run test:matrix_test
 # Orchestrate or schedule a set of jobs
 workflows:
   # Name the workflow "run_test"
